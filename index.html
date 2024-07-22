@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FTP 링크 변환기</title>
+    <!-- Tailwind CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-4 text-center">
+        FTP 링크를 이미지 태그로 변환하기
+      </h1>
+      <div class="mb-4">
+        <label for="accountName" class="block text-gray-700 font-medium mb-2"
+          >계정 이름:</label
+        >
+        <input
+          type="text"
+          id="accountName"
+          placeholder="계정 이름"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        />
+      </div>
+      <div class="flex items-center mb-4">
+        <input type="checkbox" id="remember" class="mr-2" />
+        <label for="remember" class="text-gray-700 font-medium">기억하기</label>
+      </div>
+      <div class="mb-4">
+        <label for="ftpLink" class="block text-gray-700 font-medium mb-2"
+          >FTP 링크 입력 (여러 개의 링크는 줄바꿈으로 구분):</label
+        >
+        <textarea
+          id="ftpLink"
+          placeholder="ftp://example.com/path/to/image1.jpg\nftp://example.com/path/to/image2.jpg"
+          rows="5"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        ></textarea>
+      </div>
+      <button
+        onclick="convertLink()"
+        class="w-full bg-blue-500 text-white rounded-lg py-2 mb-4"
+      >
+        변환
+      </button>
+      <h2 class="text-xl font-bold mb-2 text-center">변환된 이미지 태그:</h2>
+      <div id="resultContainer" class="mb-4">
+        <textarea
+          id="result"
+          rows="5"
+          class="w-full border border-gray-300 rounded-lg p-2"
+          readonly
+        ></textarea>
+      </div>
+      <button
+        onclick="copyToClipboard()"
+        class="w-full bg-green-500 text-white rounded-lg py-2"
+      >
+        복사
+      </button>
+    </div>
+  </body>
+</html>
